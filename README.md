@@ -1,6 +1,6 @@
 
-<img align="left" width="90" height="90" src="https://raw.githubusercontent.com/Ordep22/Course-of-data-science/c6dfd9bf6130a8dcd6b1a5cf8140c905b424f14e/Images/python.svg">
-<p vertical-align="middle"><h1>Course of Data Science with Python</h1></p>
+<img align="left" width="90" height="90" src="Images/unnamed.png">
+<p vertical-align="middle"><h1>Ifood Deve Week</h1></p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
 
@@ -12,29 +12,18 @@
 Hi.&nbsp;👋🏻 &nbsp;**Well come.**&nbsp;
 <br>
 
-Welcome to the Data Science with Python course offered by the [Data Science Academy](https://www.datascienceacademy.com.br). This repository contains the material and resources needed for the course. Here you will find lessons, exercises and practical projects to help you learn and apply the fundamental concepts of Data Science using the Python programming language.
-<br>
+[Ifood Deve Week](https://web.dio.me/lives/ifood-dev-week-ciencia-de-dados-na-pratica). 
 
 ### 📚 Content
 <hr>
 
-1. Introduction ✅
+1.  ✅
 
-2. Getting Started with the Python Language - Overview, Installations, and GPT Chat ✅
+2. ✅
 
-3. Introductory level Python language - introduction to programming logic ✅
+3.  ✅
 
-4. Introductory level Python language - variables, data types and structures ✅
 
-5. Introductory level Python language - Loops, Conditionals, Methods, Packages and Functions ✅
-
-6. Introductory level Python language - File handling, methods, packages and built-in functions ✅
-
-7. Project one and evaluation one ✅
-
-8. Basic Level Python Language - Introduction to Object Oriented Programming ✅
-
-9. Basic Level Python Language - Mathematics and Matrix Manipulation with Numpy ⏳
  
 
 ### 💻  Technologies

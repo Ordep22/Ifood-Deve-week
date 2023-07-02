@@ -1,28 +1,22 @@
 import pandas as pd
+
+
 # TODO: Evoluir a implementação para separar melhor as responsabilidades (funcional)
 #Read datas from CSV
 
-def calcular_nps(notas):
+dados  = pd.read_csv("feedbacks.csv",delimiter= ';')
 
-    detratores  = 0
+notas  = dados['nota'] #Do arquivos csv estamos buscando somente a coluna com o cabeçalho notas
 
-    promotores  = 0
-    #Check the number of promother and detractors
-    for elemento in notas:
+def CalcNps(notas):
 
-        if elemento >= 9:
-            promotores += 1
+    detratores  = notas.apply(lambda nota: nota <= 6).sum()
 
-        elif elemento <= 6:
-            detratores += 1
+    #As avaliações contidas entre o intervalo de 6 até 9 não são analisados pois são considerados neutros
 
-    #Calculate the NPS
-    ##Notas 7 e 8 são notas neutras e elas não são avaliadas pelo NPS
-    nPs = (promotores - detratores) /len(notas) *100
+    promotores  = notas[notas >=9].count()
 
-    print(nPs)
+    return print(f"NPS: {(promotores - detratores)/ len(notas)*100}")
 
 
-dados  = pd.read_csv("/Users/PedroVitorPereira/Documents/GitHub/Dev Week Ifood/feedbacks.csv",delimiter= ';')
-notas  = dados['nota']
-calcular_nps(notas)
+CalcNps(notas)

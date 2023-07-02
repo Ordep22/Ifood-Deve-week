@@ -1,36 +1,51 @@
 import pandas as pd
 # TODO: Evoluir a implementação para separar melhor as responsabilidades (funcional)
-#Read datas from CSV
+
+data  = pd.read_csv("feedbacks.csv",delimiter= ';')
 
 class Feedback:
 
-   #Creating the  construtuctor of the class
-    def __init__(self,nota, comentario):
-        self.nota  = nota
-        self.comentario  = comentario
+
+    def __init__(self,note, comment):
+
+        self.note  = note
+
+        self.comment  = comment
 
 
 class FeedbackAnalizer:
 
-    # Creating the  construtuctor of the class
+
     def __init__(self,feedbacks):
 
         self.feedbacks = feedbacks
-    def calcular_nps(self):
 
-        detratores  = sum( 1 for feedback in self.feedbacks if feedback.nota <= 6)
+    def NpsCalculate(self):
 
-        promotores  = sum( 1 for feedback in self.feedbacks if feedback.nota >= 9)
+        detractors  = sum(1 for feedback in self.feedbacks if feedback.note <= 6)
 
-        return (promotores - detratores) /len(self.feedbacks) *100
+        promoters  = sum( 1 for feedback in self.feedbacks if feedback.note >= 9)
+
+        return print(f"NPS: {(promoters - detractors) /len(self.feedbacks) *100}")
 
 
-dados  = pd.read_csv("/Users/PedroVitorPereira/Documents/GitHub/Dev Week Ifood/feedbacks.csv",delimiter= ';')
 
-feedbacks  = [ Feedback(linha['nota'],linha['comentario']) for i, linha in dados.iterrows()]
+#Itering on file in colunm nota and save on a list parameter
+#feedbacks  = [ Feedback(linha['nota'],linha['comentario']) for i, linha in dados.iterrows()] #List comprehetion
 
-analisador  = FeedbackAnalizer(feedbacks)
+#Another way to find the feedbacks on file
+fb = data.apply(lambda line: Feedback(line['note'],line['comment']),axis= 1) #Axis = one the function will read the lines
 
-nps  = analisador.calcular_nps()
+analizer  = FeedbackAnalizer(fb)
+
+analizer.NpsCalculate()
+
+
+
+
+
+
+
+
 
 
