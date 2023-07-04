@@ -12,16 +12,16 @@ satisfação dos nossos usuários.
 
 
 """
-from turtle import color
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as patch
-from matplotlib.patches import Patch
 import openai
 
-#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
 
-apiKey = "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"
+
+
+apiKey = 'INSERT YOUR API KEY'
 openai.api_key = apiKey
 
 
@@ -34,33 +34,6 @@ npsColors = ['#FF595E', '#FFCA3A', '#8AC926', '#1982C4']
 data  = pd.read_csv("feedbacks.csv",delimiter= ';')
 
 class Feedback:
-
-
-    def __init__(self,note, comment):
-
-        self.note  = note
-
-        self.comment  = comment
-
-
-class FeedbackAnalizer:
-
-
-    def __init__(self,feedbacks):
-
-        self.feedbacks = feedbacks
-
-    def NpsCalculate(self):
-
-        detractors  = sum(1 for feedback in self.feedbacks if feedback.note <= 6)
-
-        promoters  = sum( 1 for feedback in self.feedbacks if feedback.note >= 9)
-
-        return print(f"NPS: {(promoters - detractors) /len(self.feedbacks) *100}")
-
-
-class Feedback:
-
 
     def __init__(self,note, comment):
         self.note  = note
@@ -118,21 +91,32 @@ def CriateNpsGraphic(nps):
 
 def SentimentAnalyzer(feedbacks):
 
+    formatedComments = "\n".join([f"- Nota {fb.note}: {fb.comment}" for fb in feedbacks])
 
+    print(formatedComments)
 
     completion = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo-0301",
         messages=[
-            {"role": "system", "content": "Você é uma model de análise de sentimento com foco em feedbakcs sobre experiencias do cunsumidor!"},
-            {"role": "user", "content": "Hello!"}
+            {
+            "role": "system",
+             "content": "Você é uma model de análise de sentimento com foco em feedbakcs sobre experiencias do cunsumidor!"},
+
+            {
+                "role": "user",
+                "content": f"Analise os seguintes comtários, classificando-o como Positivo, Nrutro ou Negativo {formatedComments}"
+            }
         ]
     )
 
-    return ""
+    return completion.choices[0].message.content
+
 
 
 
 #Another way to find the feedbacks on file
+feedback = Feedback(data['note'],data['comment'])
+
 fb = data.apply(lambda line: Feedback(line['note'],line['comment']),axis= 1) #Axis = one the function will read the lines
 
 analizeNps  = FeedbackAnalizer(fb)
@@ -141,7 +125,7 @@ npsValue = analizeNps.NpsCalculate()
 
 CriateNpsGraphic(npsValue)
 
-insigths  = SentimentAnalyzer(Feedback)
+insigths  = SentimentAnalyzer(fb)
 
 
 
