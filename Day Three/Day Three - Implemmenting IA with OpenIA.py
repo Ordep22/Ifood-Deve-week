@@ -19,9 +19,9 @@ import matplotlib.patches as patch
 from matplotlib.patches import Patch
 import openai
 
-#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
 
-apiKey = "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"
+
+apiKey = ""
 openai.api_key = apiKey
 
 
