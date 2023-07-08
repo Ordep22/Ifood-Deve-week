@@ -1,19 +1,18 @@
 import pandas as pd
 
+#TODO: Evolution of the imperative paradigm for the funcinal one, better organizing the code structure
 
-# TODO: Evoluir a implementação para separar melhor as responsabilidades (funcional)
 #Read datas from CSV
-
 dados  = pd.read_csv("feedbacks.csv",delimiter= ';')
 
-notas  = dados['nota'] #Do arquivos csv estamos buscando somente a coluna com o cabeçalho notas
+#From the CSV file we want find the values that are in the note column
+notas  = dados['note']
 
 def CalcNps(notas):
 
-    detratores  = notas.apply(lambda nota: nota <= 6).sum()
+    detratores  = notas.apply(lambda note: note <= 6).sum()
 
-    #As avaliações contidas entre o intervalo de 6 até 9 não são analisados pois são considerados neutros
-
+    ### Noter between  seven and eigth are consider netral
     promotores  = notas[notas >=9].count()
 
     return print(f"NPS: {(promotores - detratores)/ len(notas)*100}")

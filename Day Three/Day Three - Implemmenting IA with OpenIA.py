@@ -21,7 +21,7 @@ import openai
 
 
 
-apiKey = 'INSERT YOUR API KEY'
+apiKey = ""
 openai.api_key = apiKey
 
 
@@ -105,11 +105,13 @@ def SentimentAnalyzer(feedbacks):
             {
                 "role": "user",
                 "content": f"Analise os seguintes comtários, classificando-o como Positivo, Nrutro ou Negativo {formatedComments}"
+                #"content": f"Sintetise um anaálise geral sobre os seguintes conmentário {formatedComments}"
+
             }
         ]
     )
 
-    return completion.choices[0].message.content
+    return print(completion.choices[0].message.content)
 
 
 

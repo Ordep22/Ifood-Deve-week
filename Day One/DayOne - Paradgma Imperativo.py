@@ -1,6 +1,7 @@
 import pandas as pd
-# TODO: Implementar a lógica de NPS em comandos simples e sequenciais (imperativos)
-#Read datas from CSV
+# TODO: Implemet the imperative paramenter to calc the Net Promoter Score (NPs)
+
+# Read data from CSV
 dados  = pd.read_csv("/Users/PedroVitorPereira/Documents/GitHub/Dev Week Ifood/feedbacks.csv",delimiter= ';')
 
 detratores  = 0
@@ -10,7 +11,7 @@ promotores  = 0
 notas  = dados['nota']
 
 
-#Check the number of promother and detractors
+# Check the number of promother and detractors
 for elemento in notas:
 
     if elemento >= 9:
@@ -19,8 +20,9 @@ for elemento in notas:
     elif elemento <= 6:
         detratores += 1
 
-#Calculate the NPS
-##Notas 7 e 8 são notas neutras e elas não são avaliadas pelo NPS
+# Calculate the NPS
+## Noter between  seven and eigth are consider netral
+
 nPs = (promotores - detratores) /len(notas) *100
 
 print(nPs)

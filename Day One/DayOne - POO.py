@@ -1,10 +1,10 @@
 import pandas as pd
-# TODO: Evoluir a implementação para separar melhor as responsabilidades (funcional)
-
+# TODO: Evoluting to the functional paradigm to the POO one
 data  = pd.read_csv("feedbacks.csv",delimiter= ';')
 
-class Feedback:
 
+#This class when it is instantiated takes the feedbacks and saves in note and comment variables
+class Feedback:
 
     def __init__(self,note, comment):
 
@@ -12,13 +12,14 @@ class Feedback:
 
         self.comment  = comment
 
-
+#This class have methods that can analyze the values saved on the Feedback class
 class FeedbackAnalizer:
-
 
     def __init__(self,feedbacks):
 
         self.feedbacks = feedbacks
+
+    #Metods calculade NPS (Net Promoter Score)
 
     def NpsCalculate(self):
 
@@ -30,7 +31,7 @@ class FeedbackAnalizer:
 
 
 
-#Itering on file in colunm nota and save on a list parameter
+#Itering on file in colunm note and save on a list parameter
 #feedbacks  = [ Feedback(linha['nota'],linha['comentario']) for i, linha in dados.iterrows()] #List comprehetion
 
 #Another way to find the feedbacks on file
