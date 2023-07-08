@@ -26,15 +26,15 @@ On the first day, we implemented three different approaches: imperative, functio
 During the second day, we enhanced the OOP implementation by incorporating graphical elements to perform the ETL (Extraction, Transformation, and Loading) process on the NPS data. We utilized the Matplotlib library to visualize the processed data and display the results.
 
 <img align="left" src="Day Two/Result NPS.png">
-
-
+&nbsp;
 
 **Day Three**
 
 On the third day, we applied natural language processing (NLP) techniques to analyze the sentiments expressed in the comments associated with the NPS ratings. To accomplish this, we leveraged the ChatGPT API to analyze, classify, and provide feedback on the sentiments of each evaluation. This allowed us to gain qualitative perspectives and insights regarding the product's assessment by customers.
+&nbsp;
 
 <img align="left" src="Day Three/FeddbackChatGPT.png">
-
+&nbsp;
 
 **Conclusion**
 
