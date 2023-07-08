@@ -1,24 +1,7 @@
-#Day Three
-"""
-[PT-BR]
-
-No segundo dia, vamos conectar nosso Google Colab ao Google Drive,
-extrair dados do NPS e aplicar as técnicas de ETL (Extração, T
-ransformação e Carregamento) nesses dados. Com a ajuda da biblioteca
-matplotlib, criaremos gráficos para visualizar e compreender o nível de
-satisfação dos nossos usuários.
-
-[EN]
-
-
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as patch
 import openai
-
-
 
 
 apiKey = ""
