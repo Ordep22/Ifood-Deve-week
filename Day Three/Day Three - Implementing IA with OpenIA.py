@@ -54,7 +54,7 @@ def CriateNpsGraphic(nps):
     axes.set_yticks([])
 
     #Set  x axes limit
-    axes.set_xlim(-100,100)
+    axes.set_xlim(-105,150)
 
     #Set the values on the x axes
     axes.set_xticks(npsValues)
